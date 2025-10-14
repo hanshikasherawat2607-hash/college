@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KM MAYAWATI GOVT GIRLS POLYTECHNIC GAUTAM BUDDHA NAGAR</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+    }
+
+    /* 🔹 Top Bar (Logo + Navbar) */
+    .top-bar {
+      display: flex;               
+      justify-content: space-between; 
+      align-items: center;         
+      padding: 12px 25px;
+      background-color: #02294f;
+      color: white;
+      border-radius: 0 0 20px 20px; 
+    }
+
+    .navbar {
+      display: flex;  
+      gap: 15px;     
+    }
+
+    .navbar a {
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 8px 14px;          
+      background-color: #004080;   
+      text-decoration: none;       
+      transition: 0.3s;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      background-color: #ffd54a;
+      color: #000;
+    }
+
+    .logo-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .college-name {
+      font-weight: bold;
+      font-size: 20px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* 🔹 Home Banner */
+    .home-banner {
+      background: url("image1.png") no-repeat center center/cover;
+      height: 420px;             
+      display: flex;             
+      flex-direction: column;    
+      justify-content: center;   
+      align-items: center;       
+      color: white;              
+      text-align: center;        
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .fade-text {
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .home-banner h1 {
+      font-size: 42px;
+      font-weight: 700;
+      text-shadow: 2px 2px 5px black;
+    }
+
+    .home-banner p {
+      font-size: 22px;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    /* 🔹 Updates */
+    .updates {
+      background-color:#fdf6e3;   
+      color: #060000;   
+      border-bottom: 2px solid #ffd54a;
+      padding: 20px;
+      border-radius: 12px;
+      font-family: "Poppins", sans-serif;
+      margin: 20px;
+    }
+
+    .updates h2 {
+      color: #000000;
+      border-bottom: 2px solid #ffd54a;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      font-size: 28px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: bold;
+    }
+
+    .updates a {
+      color: #000000;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .updates a:hover {
+      color: #ffd54a;
+    }
+
+    /* 🔹 Principal Section */
+    .principal {
+      display: flex;
+      gap: 25px;
+      padding: 25px;
+      align-items: flex-start;
+      background-color: #fdf6e3;
+      border-radius: 12px;
+      margin: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .principal-photo img {
+      width: 180px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .principal-info h2 {
+      color: #02294f;
+      border-bottom: 2px solid #ffd54a;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .principal-info p {
+      font-family: "Poppins", sans-serif;
+      color: #333;
+      line-height: 1.7;
+      font-size: 16px;
+      text-align: justify;
+    }
+
+    /* 🔹 Events */
+    .events {
+      margin: 20px;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .events h2 {
+      color: #02294f;
+      border-bottom: 2px solid #ffd54a;
+      padding-bottom: 6px;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .event-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .event-gallery img, .event-gallery video {
+      border-radius: 10px;
+      width: 280px;
+      height: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .event-gallery img:hover, .event-gallery video:hover {
+      transform: scale(1.05);
+    }
+
+    /* 🔹 Courses */
+    .courses {
+      margin: 30px;
+      padding: 25px;
+      background: linear-gradient(135deg, #fdf6e3, #fff7cc);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .courses-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #02294f;
+      margin-bottom: 20px;
+      font-family: Georgia, 'Times New Roman', serif;
+      border-bottom: 3px solid #ffd54a;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .courses-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .courses-list li {
+      background-color: #000000;
+      color: #ffae00;
+      font-size: 18px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, background 0.3s;
+      font-weight: bold;
+    }
+
+    .courses-list li:hover {
+      background: #6b5e33;
+      transform: translateY(-5px);
+    }
+
+    /* 🔹 Achievements */
+    .achievements {
+      margin: 30px;
+      padding: 25px;
+      background: #ffffff;
+      border-left: 6px solid #ffd54a;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .achievements-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+      margin-bottom: 15px;
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: #fff7cc;
+      border-bottom: 3px solid #ffd54a;  
+      display: inline-block;             
+      padding-bottom: 5px;
+    }
+
+    .achievements p {
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.7;
+      margin: 10px 0;
+      color: #000000;
+      background-color:#fff7cc;
+      border-radius: 5px;
+      padding: 5px 8px;
+    }
+
+    .achievements strong {
+      color: #000000;
+      font-weight: bold;
+      background-color: #ffe17e;
+      border-radius: 5px;
+      padding: 2px 5px;
+    }
+
+    /* 🔹 Vision */
+    .vision {
+      margin: 30px;
+      padding: 20px;
+      background: #fdf6e3;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .vision-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      color: #02294f;
+      border-bottom: 3px solid hsl(41, 100%, 50%);
+      display: inline-block;
+      padding-bottom: 6px;
+      margin-bottom: 15px;
+      background-color: #ffd67f;
+      border-radius: 5px;
+    }
+
+    .vision p {
+      text-align: justify;
+      font-size: 16px;
+      line-height: 1.7;
+      padding-bottom: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔹 Top Bar -->
+  <div class="top-bar">
+    <div class="logo-bar">
+      <img src="kmggologo.jpg" class="logo" width="50">
+      <span class="college-name">कु० मायावती राजकीय महिला पॉलीटेक्निक बादलपुर (गौतमबुद्ध नगर)</span>
+    </div>
+    
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a href="#">About us</a>
+      <a href="#">Courses</a>
+      <a href="#">Gallery</a>
+      <a href="#">Facilities</a>
+      <a href="#">Contact</a>
+      <a href="#">Apply</a>
+    </div>
+  </div>
+
+  <!-- 🔹 Home Banner -->
+  <section class="Home">
+    <div class="home-banner">
+      <h1 class="fade-text">KM Mayawati Government Girls Polytechnic</h1>
+      <p class="fade-text">Gautam Buddha Nagar, Uttar Pradesh</p>
+    </div>
+  </section>
+
+  <!-- 🔹 Updates -->
+  <section class="updates">
+    <h2>News and Admissions</h2>
+    <ul>
+      <li><a href="https://www.kmggp.co.in/AdmissionForm-2025-26.pdf" target="_blank">Admission Form 2025-26</a></li>
+      <li><a href="https://jeecup.admissions.nic.in/" target="_blank">JEECUP Admissions</a></li>
+      <li><a href="https://www.aicte.gov.in/" target="_blank">Extension of Approval (EoA) - 2020-21</a></li>
+    </ul>
+  </section>
+
+  <!-- 🔹 Principal -->
+  <section class="principal">
+    <div class="principal-photo">
+      <h2>Principal</h2>
+      <img src="Screenshot 2025-09-21 094604.png" alt="Principal Photo">
+    </div>
+    <div class="principal-info">
+      <h2>About KM Mayawati Government Girls Polytechnic</h2>
+      <p>
+        Established in 2002, KM Mayawati Government Girls Polytechnic, Badalpur is a leading institute dedicated to providing quality technical education exclusively for women. 
+        Affiliated with the Uttar Pradesh Board of Technical Education (UPBTE) and approved by AICTE, New Delhi, the college aims to empower young women with knowledge, skills, 
+        and confidence to build successful careers. 
+
+        Spread across 7 acres, the campus is equipped with modern classrooms, computer labs, workshops, library, hostel, and sports facilities. 
+        We currently offer diploma programs in Computer Science, Electronics Engineering, and Information Technology. 
+
+        Our dedicated faculty and staff work with a vision to create professionals who are not only technically strong but also responsible citizens. 
+        KM Mayawati Government Girls Polytechnic continues to achieve recognition as one of the reputed polytechnic institutions in Uttar Pradesh.
+      </p>
+    </div>
+  </section>
+
+  <!-- 🔹 Events -->
+  <section class="events">
+    <h2>Events & Gallery</h2>
+    <div class="event-gallery">
+      <img src="kmggpstaff.png" alt="Event 1">
+      <img src="kmggptyoga.png" alt="Event 2">
+      <img src="kmggpyoga.png" alt="Event 3">
+      <img src="staffkmggp.png" alt="Event 4">
+      <video width="280" controls>
+        <source src="eventvideo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- 🔹 Courses -->
+  <section class="courses">
+    <h2 class="courses-title">Courses Offered</h2>
+    <ul class="courses-list">
+      <li>💻 Diploma in Computer Science and Engineering</li>
+      <li>📡 Diploma in Information Technology</li>
+      <li>⚡ Diploma in Electronics Engineering</li>
+    </ul>
+  </section>
+
+  <!-- 🔹 Achievements -->
+  <section class="achievements">
+    <h2 class="achievements-title">Achievements & Recognition</h2>
+    <p><strong>Accreditation:</strong> The polytechnic is recognized by AICTE, ensuring that the courses offered meet national standards of quality education.</p>
+    <p><strong>Student Strength:</strong> Currently, the institution enrolls approximately 340 students across its various diploma programs.</p>
+    <p><strong>Faculty Expertise:</strong> The polytechnic boasts a dedicated team of 15 faculty members who are committed to providing high-quality education and mentorship to students.</p>
+    <p><strong>Infrastructure:</strong> The campus is equipped with modern infrastructure, including well-equipped laboratories, a computer center, library, hostel accommodations, and sports facilities.</p>
+  </section>
+
+  <!-- 🔹 Vision -->
+  <section class="vision">
+    <h2 class="vision-title">Vision and Mission</h2>
+    <p>
+      The vision of KM Mayawati Government Girls Polytechnic is to be a center of excellence in technical education for women, fostering innovation, skill development, and leadership. 
+      The mission is to provide quality education that empowers women to become self-reliant and contribute effectively to society and the economy.
+    </p>
+  </section>
+
+</body>
+</html>

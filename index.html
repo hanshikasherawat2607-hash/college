@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎉</title>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255,255,255,0.2);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      position: relative;
+      width: 320px;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .cake {
+      width: 200px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .message {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    button {
+      background: #ff6f61;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff3b2e;
+      transform: scale(1.05);
+    }
+
+    .surprise-text {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0.8; }
+      100% { transform: translateY(-500px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎂 Happy Birthday Babu 🎂</h1>
+    <img src="birth.png" alt="Birthday Cake" class="cake">
+    <p class="message">❤️ 22nd April ❤️</p>
+    <p class="message">❤️ You're the sweetest! ❤️</p>
+    <button id="nextBtn">Open 🎁</button>
+  </div>
+
+  <script>
+    const btn = document.getElementById('nextBtn');
+    const container = document.querySelector('.container');
+
+    btn.addEventListener('click', () => {
+      createConfetti();
+      const surprise = document.createElement('p');
+      surprise.className = 'surprise-text';
+      surprise.textContent = '💖 Wishing you all the love and smiles today! 💖';
+      container.appendChild(surprise);
+    });
+
+    function createConfetti() {
+      for (let i = 0; i < 40; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'absolute';
+        confetti.style.width = '8px';
+        confetti.style.height = '8px';
+        confetti.style.borderRadius = '50%';
+        confetti.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+        confetti.style.top = '0px';
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.animation = 'floatUp 3s linear';
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    }
+  </script>
+</body>
+</html>
