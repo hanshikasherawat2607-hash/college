@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Messages - Admin{% endblock %}
+
+{% block extra_css %}
+<style>
+    h1 {
+        color: #1a472a;
+        margin-bottom: 2rem;
+    }
+
+    .table-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table th {
+        background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%);
+        color: white;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    table td {
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    table tr:hover {
+        background-color: #f5f7fa;
+    }
+
+    .btn-delete {
+        padding: 0.5rem 1rem;
+        background-color: #dc3545;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background-color: #d1ecf1;
+        color: #0c5460;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>💬 Contact Messages</h1>
+
+<div class="table-container">
+    {% if contacts %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>#{{ contact.id }}</td>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.subject }}</td>
+                <td>{{ contact.created_at.strftime('%d/%m/%Y') }}</td>
+                <td><span class="badge">{{ contact.status|capitalize }}</span></td>
+                <td>
+                    <a href="/admin/delete-contact/{{ contact.id }}" class="btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="text-align: center; padding: 2rem; color: #666;">No messages yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

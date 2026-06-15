@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - KM Mayawati Government Girls Polytechnic{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin: 2rem 0;
+    }
+
+    .contact-info {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h2 {
+        color: #1a472a;
+        margin-bottom: 2rem;
+    }
+
+    .info-item {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .info-item:last-child {
+        border-bottom: none;
+    }
+
+    .info-item h3 {
+        color: #40916c;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-item p {
+        color: #666;
+        line-height: 1.8;
+    }
+
+    .form-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        border-top: 4px solid #40916c;
+    }
+
+    .form-container h2 {
+        color: #1a472a;
+        margin-bottom: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        color: #1a472a;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: #40916c;
+        box-shadow: 0 0 8px rgba(64, 145, 108, 0.2);
+    }
+
+    button {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(26, 71, 42, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 style="color: #1a472a; margin-bottom: 2rem; text-align: center; font-size: 2.5rem;">Get In Touch</h1>
+
+<div class="contact-container">
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        
+        <div class="info-item">
+            <h3>📞 Phone</h3>
+            <p>+91-9876543210<br>+91-1234567890</p>
+        </div>
+        
+        <div class="info-item">
+            <h3>📧 Email</h3>
+            <p>principal@kmggp.edu<br>admissions@kmggp.edu</p>
+        </div>
+        
+        <div class="info-item">
+            <h3>📍 Address</h3>
+            <p>KM Mayawati Government Girls Polytechnic<br>Badalpur, Gautam Buddha Nagar<br>Uttar Pradesh, India</p>
+        </div>
+        
+        <div class="info-item">
+            <h3>⏰ Working Hours</h3>
+            <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed</p>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Send us a Message</h2>
+        <form method="POST" action="/contact">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

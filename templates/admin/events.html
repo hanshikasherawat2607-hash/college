@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Events - Admin{% endblock %}
+
+{% block extra_css %}
+<style>
+    h1 {
+        color: #1a472a;
+        margin-bottom: 2rem;
+    }
+
+    .form-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        margin-bottom: 3rem;
+        border-top: 4px solid #40916c;
+    }
+
+    .form-container h2 {
+        color: #1a472a;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        color: #1a472a;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: #40916c;
+    }
+
+    button {
+        padding: 0.8rem 2rem;
+        background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(26, 71, 42, 0.3);
+    }
+
+    .events-list {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    }
+
+    .events-list h2 {
+        color: #1a472a;
+        margin-bottom: 1.5rem;
+    }
+
+    .event-item {
+        border-left: 4px solid #40916c;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        background: #f9fafb;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    .event-item h3 {
+        color: #1a472a;
+        margin-bottom: 0.5rem;
+    }
+
+    .event-item p {
+        color: #666;
+        font-size: 0.9rem;
+        margin: 0.3rem 0;
+    }
+
+    .btn-delete {
+        padding: 0.5rem 1rem;
+        background-color: #dc3545;
+        font-size: 0.9rem;
+    }
+
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>📅 Manage Events</h1>
+
+<div class="form-container">
+    <h2>Add New Event</h2>
+    <form method="POST" action="/admin/events">
+        <div class="form-group">
+            <label for="title">Event Title *</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description *</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="event_date">Event Date & Time *</label>
+            <input type="datetime-local" id="event_date" name="event_date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location *</label>
+            <input type="text" id="location" name="location" required>
+        </div>
+
+        <div class="form-group">
+            <label for="image_url">Image URL</label>
+            <input type="url" id="image_url" name="image_url" placeholder="https://example.com/image.jpg">
+        </div>
+
+        <button type="submit">Add Event</button>
+    </form>
+</div>
+
+<div class="events-list">
+    <h2>All Events</h2>
+    {% if events %}
+        {% for event in events %}
+        <div class="event-item">
+            <div>
+                <h3>{{ event.title }}</h3>
+                <p><strong>📅 Date:</strong> {{ event.event_date.strftime('%d %B %Y, %H:%M %p') }}</p>
+                <p><strong>📍 Location:</strong> {{ event.location }}</p>
+                <p>{{ event.description[:150] }}...</p>
+            </div>
+            <form method="POST" style="margin: 0;">
+                <a href="/admin/events" class="btn-delete" onclick="if(confirm('Delete this event?')) { return true; } else { return false; }">Delete</a>
+            </form>
+        </div>
+        {% endfor %}
+    {% else %}
+    <p style="color: #666; text-align: center; padding: 2rem;">No events added yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

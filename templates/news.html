@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}News - KM Mayawati Government Girls Polytechnic{% endblock %}
+
+{% block extra_css %}
+<style>
+    .news-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .news-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        border-top: 4px solid #40916c;
+    }
+
+    .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .news-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+    }
+
+    .news-content {
+        padding: 1.5rem;
+    }
+
+    .news-content h3 {
+        color: #1a472a;
+        margin-bottom: 1rem;
+    }
+
+    .news-content p {
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    .news-date {
+        color: #999;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    h1 {
+        color: #1a472a;
+        margin-bottom: 3rem;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .pagination a, .pagination span {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        background: white;
+        color: #1a472a;
+        text-decoration: none;
+        border: 2px solid #40916c;
+        transition: all 0.3s ease;
+    }
+
+    .pagination a:hover {
+        background: #40916c;
+        color: white;
+    }
+
+    .pagination .active {
+        background: #40916c;
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Latest News & Updates</h1>
+
+<div class="news-container">
+    {% if news.items %}
+        {% for item in news.items %}
+        <div class="news-card">
+            <div class="news-image">📰</div>
+            <div class="news-content">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.content[:150] }}...</p>
+                <div class="news-date">{{ item.created_at.strftime('%d %B %Y') }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center; grid-column: 1/-1; padding: 2rem; color: #666;">No news available at the moment.</p>
+    {% endif %}
+</div>
+
+{% if news.pages > 1 %}
+<div class="pagination">
+    {% if news.has_prev %}
+        <a href="{{ url_for('news', page=news.prev_num) }}">← Previous</a>
+    {% endif %}
+
+    {% for page_num in news.iter_pages() %}
+        {% if page_num %}
+            {% if page_num == news.page %}
+                <span class="active">{{ page_num }}</span>
+            {% else %}
+                <a href="{{ url_for('news', page=page_num) }}">{{ page_num }}</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    {% if news.has_next %}
+        <a href="{{ url_for('news', page=news.next_num) }}">Next →</a>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

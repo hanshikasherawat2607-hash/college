@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard - KM Mayawati Government Girls Polytechnic{% endblock %}
+
+{% block extra_css %}
+<style>
+    .admin-header {
+        background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .stat-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        border-top: 4px solid #40916c;
+        text-align: center;
+    }
+
+    .stat-card h3 {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .stat-card .number {
+        font-size: 2.5rem;
+        color: #1a472a;
+        font-weight: bold;
+    }
+
+    .admin-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .admin-link {
+        display: block;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .admin-link:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .recent-section {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+
+    .recent-section h3 {
+        color: #1a472a;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #40916c;
+        padding-bottom: 1rem;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table th {
+        background-color: #f5f7fa;
+        color: #1a472a;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 2px solid #e0e0e0;
+    }
+
+    table td {
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    table tr:hover {
+        background-color: #f9fafb;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .badge-pending {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+
+    .badge-new {
+        background-color: #d1ecf1;
+        color: #0c5460;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h1>📊 Admin Dashboard</h1>
+    <p>Welcome back! Manage your institution's content and admissions.</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <h3>Total Applications</h3>
+        <div class="number">{{ student_count }}</div>
+    </div>
+    <div class="stat-card">
+        <h3>Contact Messages</h3>
+        <div class="number">{{ contact_count }}</div>
+    </div>
+    <div class="stat-card">
+        <h3>News Posts</h3>
+        <div class="number">{{ news_count }}</div>
+    </div>
+    <div class="stat-card">
+        <h3>Upcoming Events</h3>
+        <div class="number">{{ event_count }}</div>
+    </div>
+</div>
+
+<div class="admin-links">
+    <a href="/admin/students" class="admin-link">👥 View Applications</a>
+    <a href="/admin/contacts" class="admin-link">💬 View Messages</a>
+    <a href="/admin/news" class="admin-link">📰 Manage News</a>
+    <a href="/admin/events" class="admin-link">📅 Manage Events</a>
+</div>
+
+{% if recent_students %}
+<div class="recent-section">
+    <h3>📝 Recent Applications</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in recent_students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.course }}</td>
+                <td>{{ student.created_at.strftime('%d/%m/%Y') }}</td>
+                <td><span class="badge badge-{{ student.status }}">{{ student.status|capitalize }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% if recent_contacts %}
+<div class="recent-section">
+    <h3>💬 Recent Messages</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in recent_contacts %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.subject }}</td>
+                <td>{{ contact.created_at.strftime('%d/%m/%Y') }}</td>
+                <td><span class="badge badge-{{ contact.status }}">{{ contact.status|capitalize }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
