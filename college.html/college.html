@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +10,8 @@
     body {
       margin: 0;
       font-family: "Poppins", Arial, sans-serif;
-      background-color: #f4f6f9;
-      color: #333;
+      background-color: #f7fafc; 
+      color: #2d3748; 
     }
 
     
@@ -19,7 +20,7 @@
       justify-content: space-between; 
       align-items: center;         
       padding: 12px 25px;
-      background: #3182ce;
+      background: #2b6cb0; /* Professional Corporate Blue */
       color: white;
       border-radius: 0 0 20px 20px; 
     }
@@ -33,7 +34,7 @@
       color: #ffffff;
       border-radius: 10px;
       padding: 8px 14px;          
-      background-color: #2d6a4f;   
+      background-color: #2c5282;
       text-decoration: none;       
       transition: 0.3s;
       font-size: 15px;
@@ -41,8 +42,8 @@
     }
 
     .navbar a:hover {
-      background-color: #40916c;
-      color: #fff;
+      background-color: #e2e8f0;
+      color: #2b6cb0;
     }
 
     .logo-bar {
@@ -57,19 +58,19 @@
       font-family: "Poppins", sans-serif;
     }
 
-    /* 🔹 Home Banner */
+  
     .home-banner {
       height: 420px;             
       display: flex;             
       flex-direction: column;    
       justify-content: center;   
       align-items: center;       
-      color: white;              
+      color: #2b6cb0;              
       text-align: center;        
       padding: 20px;
       border-radius: 20px;
-      background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 50%, #40916c 100%);
-      box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%); 
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     }
 
     .fade-text {
@@ -85,30 +86,32 @@
     .home-banner h1 {
       font-size: 42px;
       font-weight: 700;
-      text-shadow: 2px 2px 5px black;
+      text-shadow: none; 
       margin: 10px 0;
     }
 
     .home-banner p {
       font-size: 22px;
-      text-shadow: 1px 1px 3px black;
+      color: #4a5568; 
+      text-shadow: none;
       margin: 10px 0;
     }
 
-    /* 🔹 Updates */
+    
     .updates {
-      background-color:#fdf6e3;   
-      color: #060000;   
-      border-bottom: 2px solid #ffd54a;
+      background-color: #ffffff;   
+      color: #2d3748;   
+      border-bottom: 3px solid #3182ce;
       padding: 20px;
       border-radius: 12px;
       font-family: "Poppins", sans-serif;
       margin: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
     }
 
     .updates h2 {
-      color: #000000;
-      border-bottom: 2px solid #ffd54a;
+      color: #2b6cb0;
+      border-bottom: 2px solid #e2e8f0;
       padding-bottom: 6px;
       margin-bottom: 12px;
       font-size: 28px;
@@ -117,13 +120,15 @@
     }
 
     .updates a {
-      color: #000000;
+      color: #3182ce;
       text-decoration: none;
       font-size: 16px;
+      font-weight: 500;
     }
 
     .updates a:hover {
-      color: #ffd54a;
+      color: #2b6cb0;
+      text-decoration: underline;
     }
 
     /* 🔹 Principal Section */
@@ -132,21 +137,22 @@
       gap: 25px;
       padding: 25px;
       align-items: flex-start;
-      background-color: #fdf6e3;
+      background-color: #ffffff;
       border-radius: 12px;
       margin: 20px;
       font-family: Georgia, 'Times New Roman', Times, serif;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
     }
 
     .principal-photo img {
       width: 180px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .principal-info h2 {
-      color: #1a472a;
-      border-bottom: 2px solid #ffd54a;
+      color: #2b6cb0;
+      border-bottom: 2px solid #e2e8f0;
       padding-bottom: 6px;
       margin-bottom: 12px;
       font-size: 22px;
@@ -154,24 +160,24 @@
 
     .principal-info p {
       font-family: "Poppins", sans-serif;
-      color: #333;
+      color: #4a5568;
       line-height: 1.7;
       font-size: 16px;
       text-align: justify;
     }
 
-    
+    /* 🔹 Events */
     .events {
       margin: 20px;
       padding: 20px;
       background: #ffffff;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
     }
 
     .events h2 {
-      color: #1a472a;
-      border-bottom: 2px solid #ffd54a;
+      color: #2b6cb0;
+      border-bottom: 2px solid #e2e8f0;
       padding-bottom: 6px;
       margin-bottom: 15px;
       font-size: 22px;
@@ -188,7 +194,7 @@
       border-radius: 10px;
       width: 280px;
       height: auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       transition: transform 0.3s;
     }
 
@@ -196,23 +202,23 @@
       transform: scale(1.05);
     }
 
-    
+    /* 🔹 Courses */
     .courses {
       margin: 30px;
       padding: 25px;
-      background: linear-gradient(135deg, #fdf6e3, #fff7cc);
+      background: linear-gradient(135deg, #ffffff, #edf2f7);
       border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
       text-align: center;
     }
 
     .courses-title {
       font-size: 32px;
       font-weight: bold;
-      color: #1a472a;
+      color: #2b6cb0;
       margin-bottom: 20px;
       font-family: Georgia, 'Times New Roman', serif;
-      border-bottom: 3px solid #ffd54a;
+      border-bottom: 3px solid #3182ce;
       display: inline-block;
       padding-bottom: 8px;
     }
@@ -227,19 +233,20 @@
     }
 
     .courses-list li {
-      background-color: #1a472a;
-      color: #fff;
+      background-color: #ffffff;
+      color: #2b6cb0;
       font-size: 18px;
       font-family: Georgia, 'Times New Roman', Times, serif;
       padding: 15px;
       border-radius: 12px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.02);
       transition: transform 0.3s, background 0.3s;
       font-weight: bold;
     }
 
     .courses-list li:hover {
-      background: #2d6a4f;
+      background: #ebf8ff;
       transform: translateY(-5px);
     }
 
@@ -248,19 +255,19 @@
       margin: 30px;
       padding: 25px;
       background: #ffffff;
-      border-left: 6px solid #1a472a;
+      border-left: 6px solid #3182ce;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
     }
 
     .achievements-title {
       font-size: 28px;
       font-weight: bold;
-      color: #1a472a;
+      color: #2b6cb0;
       margin-bottom: 15px;
       font-family: Georgia, 'Times New Roman', serif;
-      background-color: #e8f5e9;
-      border-bottom: 3px solid #1a472a;  
+      background-color: #ebf8ff;
+      border-bottom: 3px solid #3182ce;  
       display: inline-block;             
       padding-bottom: 5px;
     }
@@ -270,16 +277,16 @@
       font-family: "Poppins", sans-serif;
       line-height: 1.7;
       margin: 10px 0;
-      color: #333;
-      background-color:#f1f8f4;
+      color: #4a5568;
+      background-color: #f7fafc;
       border-radius: 5px;
       padding: 5px 8px;
     }
 
     .achievements strong {
-      color: #1a472a;
+      color: #2b6cb0;
       font-weight: bold;
-      background-color: #c8e6c9;
+      background-color: #ebf8ff;
       border-radius: 5px;
       padding: 2px 5px;
     }
@@ -288,21 +295,21 @@
     .vision {
       margin: 30px;
       padding: 20px;
-      background: #e8f5e9;
+      background: #e6fffa; /* Matching background light-teal mint */
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
 
     .vision-title {
       text-align: center;
       font-size: 26px;
       font-weight: bold;
-      color: #1a472a;
-      border-bottom: 3px solid #1a472a;
+      color: #2b6cb0;
+      border-bottom: 3px solid #3182ce;
       display: inline-block;
       padding-bottom: 6px;
       margin-bottom: 15px;
-      background-color: #c8e6c9;
+      background-color: #b2f5ea;
       border-radius: 5px;
       padding: 8px 12px;
     }
@@ -312,7 +319,7 @@
       font-size: 16px;
       line-height: 1.7;
       padding-bottom: 10px;
-      color: #333;
+      color: #4a5568;
     }
 
   </style>
@@ -320,7 +327,6 @@
 
 <body>
 
-  
   <div class="top-bar">
     <div class="logo-bar">
       <img src="kmggologo.jpg" class="logo" width="50">
@@ -338,7 +344,6 @@
     </div>
   </div>
 
-  <!-- 🔹 Home Banner -->
   <section class="Home">
     <div class="home-banner">
       <h1 class="fade-text">KM Mayawati Government Girls Polytechnic</h1>
@@ -346,7 +351,6 @@
     </div>
   </section>
 
-  <!-- 🔹 Updates -->
   <section class="updates">
     <h2>News and Admissions</h2>
     <ul>
@@ -356,7 +360,6 @@
     </ul>
   </section>
 
-  <!-- 🔹 Principal -->
   <section class="principal">
     <div class="principal-photo">
       <h2>Principal</h2>
@@ -365,12 +368,12 @@
     <div class="principal-info">
       <h2>About KM Mayawati Government Girls Polytechnic</h2>
       <p>
-        Established in 2002, KM Mayawati Government Girls Polytechnic, Badalpur is a leading institute dedicated to providing quality technical education exclusively for women. 
+        Established in 2002, KM Mayawati Government Girls Polytechnic, Badalpur is a leading institute dedicated to providing quality technical education exclusively for women.
         Affiliated with the Uttar Pradesh Board of Technical Education (UPBTE) and approved by AICTE, New Delhi, the college aims to empower young women with knowledge, skills, 
         and confidence to build successful careers. 
 
         Spread across 7 acres, the campus is equipped with modern classrooms, computer labs, workshops, library, hostel, and sports facilities. 
-        We currently offer diploma programs in Computer Science, Electronics Engineering, and Information Technology. 
+        We currently offer diploma programs in Computer Science, Electronics Engineering, and Information Technology.
 
         Our dedicated faculty and staff work with a vision to create professionals who are not only technically strong but also responsible citizens. 
         KM Mayawati Government Girls Polytechnic continues to achieve recognition as one of the reputed polytechnic institutions in Uttar Pradesh.
@@ -378,7 +381,6 @@
     </div>
   </section>
 
-  <!-- 🔹 Events -->
   <section class="events">
     <h2>Events & Gallery</h2>
     <div class="event-gallery">
@@ -392,7 +394,6 @@
     </div>
   </section>
 
-  <!-- 🔹 Courses -->
   <section class="courses">
     <h2 class="courses-title">Courses Offered</h2>
     <ul class="courses-list">
@@ -402,7 +403,6 @@
     </ul>
   </section>
 
-  <!-- 🔹 Achievements -->
   <section class="achievements">
     <h2 class="achievements-title">Achievements & Recognition</h2>
     <p><strong>Accreditation:</strong> The polytechnic is recognized by AICTE, ensuring that the courses offered meet national standards of quality education.</p>
@@ -411,14 +411,13 @@
     <p><strong>Infrastructure:</strong> The campus is equipped with modern infrastructure, including well-equipped laboratories, a computer center, library, hostel accommodations, and sports facilities.</p>
   </section>
 
-  <!-- 🔹 Vision -->
   <section class="vision">
     <h2 class="vision-title">Vision and Mission</h2>
     <p>
-      The vision of KM Mayawati Government Girls Polytechnic is to be a center of excellence in technical education for women, fostering innovation, skill development, and leadership. 
+      The vision of KM Mayawati Government Girls Polytechnic is to be a center of excellence in technical education for women, fostering innovation, skill development, and leadership.
       The mission is to provide quality education that empowers women to become self-reliant and contribute effectively to society and the economy.
     </p>
   </section>
 
 </body>
-</html>
+</html!DOC
